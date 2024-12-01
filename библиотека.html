@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuzzTalk Library</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f7f0e1;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #002147;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 2em;
+            letter-spacing: 1px;
+        }
+        .header p {
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+        .carousel {
+            width: 80%;
+            margin: 40px auto;
+            position: relative;
+        }
+        .carousel-track {
+            display: flex;
+            overflow: hidden;
+            scroll-behavior: smooth;
+        }
+        .book {
+            background-color: #ce0c0c;
+            width: 200px;
+            margin: 0 15px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .book:hover {
+            transform: scale(1.05);
+        }
+        .book img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        .book a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+            background-color: #002147;
+            border-radius: 4px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .book a:hover {
+            background-color: #001533;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #002147;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>BuzzTalk Library</h1>
+    <p class="quote">"A room without books is like a body without a soul."</p>
+</div>
+
+<div class="carousel">
+    <button class="carousel-button prev">❮</button>
+    <div class="carousel-track">
+        <div class="book">
+            <img src="https://avatars.mds.yandex.net/i?id=604bfd426036ce29b8e4d1778365816760d49f6c-10239192-images-thumbs&n=13" alt="Book 1">
+            <h2>Alice in Wonderland</h2>
+            <a href="Alice_in_Wonderland.pdf" target="_blank">Read PDF</a>
+        </div>
+        <div class="book">
+            <img src="https://avatars.mds.yandex.net/i?id=121c4250c1685c4e29957f5922d36b2b_l-4566892-images-thumbs&n=13" alt="Book 2">
+            <h2>Eat-Pray-Love</h2>
+            <a href="Eat-Pray-Love-Book-on-pdf.pdf" target="_blank">Read PDF</a>
+        </div>
+        <div class="book">
+            <img src="https://avatars.mds.yandex.net/i?id=e45a8d20c6351275549c431f5fa4d76f_l-10964795-images-thumbs&n=13" alt="Book 3">
+            <h2>Peter Pan </h2>
+            <a href="Peter Pan.pdf" target="_blank">Read PDF</a>
+        </div>
+        <div class="book">
+            <img src="https://avatars.mds.yandex.net/i?id=554eb08be1d2bee64a8a2b31e11e3362_l-6977815-images-thumbs&n=13" alt="Book 4">
+            <h2>Daddy long Legs</h2>
+            <a href="-Jean_Webster-Daddy-Long-Legs-Puffin_Classics-Book.pdf" target="_blank">Read PDF</a>
+        </div>
+        <div class="book">
+            <img src="https://i.pinimg.com/736x/f0/b9/09/f0b9099daf86f28903f591bcba94307f.jpg" alt="Book 3">
+            <h2>Charlotte</h2>
+            <a href="Charlotte_Bronte_Jane_Eyre_Book_А2.pdf" target="_blank">Read PDF</a>
+        </div>
+    </div>
+    <button class="carousel-button next">❯</button>
+</div>
+
+<script>
+    const track = document.querySelector('.carousel-track');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+
+    nextButton.addEventListener('click', () => {
+        track.scrollBy({ left: 220, behavior: 'smooth' });
+    });
+
+    prevButton.addEventListener('click', () => {
+        track.scrollBy({ left: -220, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
+
+

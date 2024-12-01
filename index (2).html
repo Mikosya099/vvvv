@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuzzTalk - Educational Center</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Global Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #003366, #cc0000);
+            color: #ffffff;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #cc0000;
+            padding: 15px;
+        }
+
+        .navbar a {
+            color: rgb(253, 252, 252);
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #700808;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #cc0000;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: rgb(233, 227, 227);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #2b0404;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 40px;
+            background: #003366;
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        .video-logo {
+            width: 150px; 
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 10px 0;
+        }
+
+        /* Teachers Section Styles */
+        .teachers-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 50px;
+            background: #f9f9f9;
+        }
+
+        .teacher-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 300px;
+            margin: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        }
+
+        .teacher-photo {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid #003366;
+        }
+
+        .teacher-card h2 {
+            margin: 20px 0 10px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .teacher-card p {
+            font-size: 0.9em;
+            padding: 0 20px 20px;
+            color: #666;
+        }
+
+        /* Contact Section Styles */
+        .contact-section {
+            padding: 20px;
+            background-color: #003366;
+            text-align: center;
+        }
+
+        .contact-numbers p {
+            margin: 5px 0;
+        }
+
+        .qr-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .qr-code {
+            width: 100px; /* Adjust the size as needed */
+            height: 100px; /* Adjust the size as needed */
+            background-color: #fff; /* Placeholder for QR code */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        footer {
+            background: #504d4d;
+            color: #faf8f8;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        {
+            font-family: 'Arial', sans-serif;
+            background-color: #003366;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .about-container {
+            background-color: #fdfbfb;
+            color: #003366;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+            color: #f8f6f6;
+        }
+
+            
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .teacher-name {
+            font-weight: bold;
+            color: #0a0101;
+        }
+        /* Welcome Message Section */
+        .welcome-section {
+            background-color: #003366;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .welcome-section h2 {
+            font-size: 2em;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .welcome-section p {
+            font-size: 1.2em;
+            color: #f7f5f5;
+        }
+        .qr-container img {
+            width: 150px;
+            height: 150px;
+        }
+        .qr-container p {
+            color: white;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        /* Check Level Section */
+        .quiz-section {
+            text-align: center;
+            padding: 50px;
+            background-color: #003366;
+        }
+
+        .quiz-section h1 {
+            font-size: 2em;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .quiz-section a {
+            display: inline-block;
+            text-align: center;
+            padding: 15px 30px;
+            background-color: #ee1811;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.2em;
+            border: 2px solid #0056b3;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .quiz-section a:hover {
+            background-color: #0d9e00;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+<!-- Header Section -->
+<header>
+    <div class="logo-container">
+        <video class="video-logo" autoplay loop muted>
+            <source src="images/лого.mp4" type="video/mp4">
+            Ваш браузер не поддерживает тег video.
+        </video>
+    </div>
+    <h1>BuzzTalk - Educational Center</h1>
+</header>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="dropdown">
+        <a href="#home">Home</a>
+        <div class="dropdown-content">
+       <a href="#about">About us</a>
+        <a href="#Teachers"> Teachers</a>
+        <a href="https://mikosya099.github.io/li/%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B0.html">library</a> 
+    </div>
+    </div>
+    <a href="#Chek ">Chek your level </a>
+        
+        <div class="dropdown">
+            <a href="#exercises">Exercises</a>
+            <div class="dropdown-content">
+                <a href="https://mikosya099.github.io/01111/lesson%201.html">Lesson-1</a>
+                <a href="https://mikosya099.github.io/0222/lesson%202.html">Lesson-2</a>
+                <a href="https://mikosya099.github.io/0333/lesson%203.html">Lesson-3</a>
+                <a href="https://mikosya099.github.io/0444/lesson%204.html">Lesson-4</a>
+                <a href="https://mikosya099.github.io/0555/lesson%205.html">Lesson-5</a>
+                <a href="https://mikosya099.github.io/.06/lesson%206.html">Lesson-6</a>
+                <a href="https://mikosya099.github.io/7lesson/lesson%207.html">Lesson-7</a>
+                <a href="https://mikosya099.github.io/8/lesson%208.html">Lesson-8</a>
+                <a href="https://mikosya099.github.io/99/lesson%209.html">Lesson-9</a>
+                <a href="https://mikosya099.github.io/100/lesson%2010.html">Lesson-10</a>
+                <a href="https://mikosya099.github.io/11/lesson%2011.html">Lesson-11</a>
+                <a href="https://mikosya099.github.io/12/lesson%2012.html">Lesson-12</a>
+                <a href="https://mikosya099.github.io/13-lesson/lesson%2013.html">Lesson-13</a>
+                <a href="#level14">Lesson-14</a>
+                <a href="#level15">Lesson-15</a>
+            </div>
+        </div>
+        <a href="#contacts">Contacts</a>
+    </div>
+
+    <!-- Welcome Message Section -->
+<section class="welcome-section">
+    <h2>Welcome to BuzzTalk!</h2>
+    <p>Your journey to mastering English starts here. Explore our courses and meet our expert teachers.</p>
+</section>
+
+    <div class="about-container"> <section id="about">
+        <h3>About Us - BuzzTalk Educational Center</h3>
+        <p>At <strong>BuzzTalk Educational Center</strong>, we are dedicated to providing high-quality education that empowers students to achieve their full potential. Our goal is to create a dynamic and supportive learning environment where students can develop essential language skills, enhance their creativity, and build confidence in English communication.</p>
+
+        <p>Our experienced teachers, <span class="teacher-name">Merey</span> and <span class="teacher-name">Zhanel</span>, bring a unique blend of professionalism and creativity to the classroom. They are not only highly qualified in the field of language education, but also adept at using innovative teaching techniques to engage students in the learning process.</p>
+
+        <p><span class="teacher-name">Merey</span> has a deep passion for teaching and excels at finding creative solutions to help students overcome language barriers. Her focus on individual learning styles ensures that every student receives the attention they need to succeed.</p>
+
+        <p><span class="teacher-name">Zhanel</span> is known for her creative approach to language instruction, combining practical exercises with engaging, real-life applications of English. Her dynamic teaching methods make learning enjoyable and effective.</p>
+
+        <p>At BuzzTalk, we believe in fostering a collaborative and interactive atmosphere where students are encouraged to explore new ideas, think critically, and grow both academically and personally. We are committed to guiding our students on their journey to English fluency, equipping them with the skills and confidence needed for success in an ever-changing world.</p>
+    </section>
+    </div>
+
+    <!-- Teachers Section -->
+    <section class="teachers-container"> 
+        <div class="teacher-card">
+           
+            <img src="images/merei.jpg" alt="Учитель Мerei" class="teacher-photo"><section id="Teachers">
+            <h2>Merey</h2>
+            <p>Kazhik Merey Kanatovna<br>Certified level: Advanced (C1)<br>More than 5 years of experience<br>Individual approach</p>
+        </div>
+        <div class="teacher-card">
+            <img src="images/zhanel.jpg" alt="Учитель Zhanel" class="teacher-photo">
+            <h2>Zhanel</h2>
+            <p>Sabeukhanova Zhanel Ardakkyzy<br>Certified level: Advanced (C1)<br>More than 5 years of experience<br>Individual approach</p>
+        </div></section>
+    </section>
+   <!-- Interactive Quiz Section -->
+<section class="quiz-section" id="Chek">
+    <h1>Test Your English Level</h1>
+    <a href="https://quizizz.com/admin/quiz/67360aeac2519553ecc44265" target="_blank">Start</a>
+</section>
+
+   
+</head>
+<body>
+
+        <!-- Добавьте больше PDF-документов по аналогии -->
+    
+   <!-- Contact Section -->
+<div class="contact-section" id="contacts">
+    <h2>Contact Information</h2>
+    <div class="contact-numbers">
+        <p>📞Phone Number: +7-776-820-3298</p>
+        <p>📞Phone Number: +7 778 466 30 59</p>
+    </div>
+    <div class="qr-container">
+    <img src="images/к-1.png" alt="QR Code for BuzzTalk">
+    <img src="images/k-2.png" alt="QR Code for BuzzTalk">
+    <img src="images/k-3.png" alt="QR Code for BuzzTalk">
+ 
+    
+</div>
+
+    <!-- Footer Section -->
+    <footer>
+        <h5>&copy; 2024 BuzzTalk.</h5>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
